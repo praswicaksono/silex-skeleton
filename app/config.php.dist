@@ -1,15 +1,6 @@
 <?php
 
 return [
-    'twitter_auth' => [
-        'oauth_access_token' => 'YOUR_ACCESS_TOKEN',
-        'oauth_access_token_secret' => 'YOUR_TOKEN_SECRET',
-        'consumer_key' => 'CONSUMER_KEY',
-        'consumer_secret' => 'CONSUMER_SECRET',
-    ],
-    'google_auth' => [
-        'google_api_key' => 'YOUR_API_KEY'
-    ],
     'twig_config' => [
         'twig.path' => __DIR__ . '/../src/Templates',
         'twig.options' => [

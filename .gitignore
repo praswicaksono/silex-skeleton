@@ -1,1 +1,8 @@
-vendor
+vendor/
+!app/cache/profiler/.gitkeep
+app/cache/profiler/*
+!app/cache/template/.gitkeep
+app/cacche/template/*
+!app/logs/.gitkeep
+app/logs/*
+app/config.php
