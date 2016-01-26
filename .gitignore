@@ -6,3 +6,4 @@ app/cache/template/*
 !app/logs/.gitkeep
 app/logs/*
 app/config.php
+.idea
