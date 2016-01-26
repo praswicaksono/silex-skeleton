@@ -23,7 +23,7 @@ class MainController implements ControllerProviderInterface
      * @param Application $app
      * @return ControllerCollection
      */
-    public function connect(Application $app)
+    public function connect(Application $app) : ControllerCollection
     {
         $this->app = $app;
         $controllers = $app['controllers_factory'];
@@ -35,8 +35,8 @@ class MainController implements ControllerProviderInterface
      * @param Request $request
      * @return Response
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request) : Response
     {
-        return $this->app['twig']->render('index.twig');
+        return Response::create($this->app['twig']->render('index.twig'));
     }
 }
