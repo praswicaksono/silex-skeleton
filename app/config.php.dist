@@ -5,11 +5,12 @@ return [
         'twig.path' => __DIR__ . '/../src/Templates',
         'twig.options' => [
             'cache' => __DIR__ . '/../app/cache/template',
-            'auto_reload' => true
+            'auto_reload' => (bool) env('TWIG_AUTO_RELOAD', false)
         ]
     ],
     'monolog_config' => [
-        'monolog.logfile' => __DIR__ . '/logs/log.log'
+        'monolog.name' => 'MyApp',
+        'monolog.logfile' => __DIR__ . '/logs/' . env('APP_ENV', 'production') . '.log'
     ],
     'db_config' => [
         'db.options' => [
@@ -17,7 +18,6 @@ return [
             'path'     => __DIR__ . '/db/app.db',
         ]
     ],
-    'debug' => true,
-    'settings' => [
-    ]
+    'debug' => (bool) env('APP_DEBUG', false),
+    'env' => (bool) env('APP_ENV', false)
 ];
