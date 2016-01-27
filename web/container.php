@@ -1,5 +1,12 @@
 <?php
 
+use Jowy\SilexSkeleton\Controllers\MainController;
+
 /**
-* register internal class in container
+* PHPDI definition through $containerBuilder
 */
+
+$containerBuilder->addDefinitions([
+    'Twig_Environment' => \DI\get('twig'),
+    MainController::class => \DI\object(MainController::class)
+]);
