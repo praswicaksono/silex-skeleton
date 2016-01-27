@@ -7,3 +7,4 @@ app/cache/template/*
 app/logs/*
 app/config.php
 .idea
+.env
