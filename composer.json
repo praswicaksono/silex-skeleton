@@ -6,12 +6,12 @@
         "php": "^7.0",
         "silex/silex": "^2.0",
         "monolog/monolog": "^1.17",
-        "php-di/silex-bridge": "^1.5",
+        "php-di/silex-bridge": "2.0.0-beta1",
         "vlucas/phpdotenv": "^2.2",
         "doctrine/cache": "^1.6"
     },
     "require-dev": {
-        "silex/web-profiler": "^1.0"
+        "silex/web-profiler": "^2.0"
     },
     "license": "MIT",
     "authors": [
