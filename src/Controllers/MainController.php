@@ -1,6 +1,6 @@
 <?php
 
-namespace Jowy\SilexSkeleton\Controllers;
+namespace App\Controllers;
 
 use Silex\Application;
 use Silex\ControllerCollection;

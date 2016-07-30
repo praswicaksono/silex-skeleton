@@ -1,6 +1,6 @@
 <?php
 
-use Jowy\SilexSkeleton\Controllers\MainController;
+use App\Controllers\MainController;
 
 /**
  * mount controller
