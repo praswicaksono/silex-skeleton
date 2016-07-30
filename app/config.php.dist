@@ -1,23 +1,55 @@
 <?php
 
 return [
-    'twig_config' => [
-        'twig.path' => __DIR__ . '/../src/Templates',
-        'twig.options' => [
-            'cache' => __DIR__ . '/../app/cache/template',
-            'auto_reload' => (bool) env('TWIG_AUTO_RELOAD', false)
-        ]
+    'config' => [
+        'debug' => (bool) env('APP_DEBUG', false),
+        'env' => (bool) env('APP_ENV', false),
+        'session' => [
+            'session.storage.options' => [
+                'name' => '__SESS',
+                'id' => null,
+                'cookie_lifetime' => 3600*60,
+                'cookie_domain' => 'example.com',
+                'cookie_secure' => false,
+                'cookie_httponly' => true,
+            ],
+        ],
+        'twig' => [
+            'twig.path' => __DIR__ . '/../src/Templates',
+            'twig.options' => [
+                'cache' => __DIR__ . '/cache/template',
+                'auto_reload' => (bool) env('TWIG_AUTO_RELOAD', false)
+            ],
+        ],
+        'monolog' => [
+            'monolog.name' => 'MyApp',
+            'monolog.logfile' => __DIR__ . '/logs/' . env('APP_ENV', 'production') . '.log'
+        ],
+        'database' => [
+            'db.options' => [
+                'driver'   => 'pdo_sqlite',
+                'path'     => __DIR__ . '/db/app.db',
+            ],
+        ],
+        'http_cache' => [
+            'http_cache.cache_dir' => __DIR__ . '/cache/http',
+            'http_cache.options' => [],
+        ],
+        'translation' => [
+            'locale' => 'en',
+            'locale_fallbacks' => ['en'],
+            'resources' => [
+                'yaml' => [
+                    'en' => __DIR__ . 'locale/en.yml',
+                ],
+            ],
+        ],
+        'security' => [
+            'security.firewalls' => [
+                'unsecured' => [
+                    'anonymous' => true
+                ],
+            ],
+        ],
     ],
-    'monolog_config' => [
-        'monolog.name' => 'MyApp',
-        'monolog.logfile' => __DIR__ . '/logs/' . env('APP_ENV', 'production') . '.log'
-    ],
-    'db_config' => [
-        'db.options' => [
-            'driver'   => 'pdo_sqlite',
-            'path'     => __DIR__ . '/db/app.db',
-        ]
-    ],
-    'debug' => (bool) env('APP_DEBUG', false),
-    'env' => (bool) env('APP_ENV', false)
 ];
