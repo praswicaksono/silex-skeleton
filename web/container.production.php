@@ -1,6 +1,7 @@
 <?php
+declare(strict_types = 1);
 
-use Jowy\SilexSkeleton\Controllers\MainController;
+use App\Controllers\MainController;
 
 /**
 * PHPDI definition through $containerBuilder
