@@ -31,17 +31,6 @@ trait CreateApplicationTrait
             throw new \Exception("app/config.php not found");
         }
 
-        if (! function_exists('env')) {
-            function env($name, $default)
-            {
-                if (isset($_ENV[$name])) {
-                    return $_ENV[$name];
-                }
-
-                return $default;
-            }
-        }
-
         $containerBuilder = new ContainerBuilder();
 
         require __DIR__ . '/../web/container.' . env('APP_ENV', 'production') . '.php';

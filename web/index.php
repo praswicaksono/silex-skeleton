@@ -15,17 +15,6 @@ if (file_exists(__DIR__ . '/../.env')) {
     $dotenv->required('APP_TWIG_AUTO_RELOAD')->allowedValues([true, false]);
 }
 
-if (! function_exists('env')) {
-    function env($name, $default)
-    {
-        if (isset($_ENV[$name])) {
-            return $_ENV[$name];
-        }
-
-        return $default;
-    }
-}
-
 if (! file_exists(__DIR__ . '/../app/config.php')) {
     throw new Exception("app/config.php not found");
 }
