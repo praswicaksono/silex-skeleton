@@ -11,7 +11,7 @@ if (file_exists(__DIR__ . '/../.env')) {
     $dotenv = new Dotenv(__DIR__ . '/../');
     $dotenv->load();
     $dotenv->required('APP_DEBUG')->allowedValues([true, false]);
-    $dotenv->required('APP_ENV')->allowedValues(['production', 'development', 'staging']);
+    $dotenv->required('APP_ENV')->allowedValues(['production', 'development', 'staging', 'dev', 'test']);
     $dotenv->required('APP_TWIG_AUTO_RELOAD')->allowedValues([true, false]);
 }
 
