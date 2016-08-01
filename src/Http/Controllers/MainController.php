@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
 use Silex\Application;
 use Silex\ControllerCollection;
