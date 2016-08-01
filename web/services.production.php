@@ -21,6 +21,8 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Silex\Application;
+use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
 
 /**
  * register service provider
@@ -54,6 +56,9 @@ $app->extend('translator', function (Translator $translator, Application $app) {
 
     return $translator;
 });
+
+$app->register(new DoctrineServiceProvider(), $app['config']['database']);
+$app->register(new DoctrineOrmServiceProvider(), $app['config']['doctrine']);
 
 /**
  * if debug true load debug bar

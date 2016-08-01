@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types = 1);
+
+use Symfony\Component\Console\Application;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Symfony\Component\Console\Helper\QuestionHelper;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\DiffCommand;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\ExecuteCommand;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\GenerateCommand;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\MigrateCommand;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\StatusCommand;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\VersionCommand;
+
+$app = require __DIR__ . '/../../web/bootstrap.php';
+
+/** @var \Doctrine\ORM\EntityManager $em */
+$em = $app['orm.em'];
+
+$cli = new Application('Doctrine Console Application', \Doctrine\ORM\Version::VERSION);
+$helper = ConsoleRunner::createHelperSet($em);
+$helper->set(new QuestionHelper(), 'dialog');
+
+$cli->setHelperSet($helper);
+$cli->setCatchExceptions(true);
+
+$cli->addCommands([
+    new DiffCommand(),
+    new ExecuteCommand(),
+    new GenerateCommand(),
+    new MigrateCommand(),
+    new StatusCommand(),
+    new VersionCommand()
+]);
+
+$cli->run();
