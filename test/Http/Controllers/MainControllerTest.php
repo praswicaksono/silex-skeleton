@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace App\Test\Controllers;
+namespace App\Test\Http\Controllers;
 
 use App\Test\CreateApplicationTrait;
 use Silex\WebTestCase;
