@@ -27,15 +27,15 @@ trait CreateApplicationTrait
             $dotenv->required('APP_TWIG_AUTO_RELOAD')->allowedValues([true, false]);
         }
 
-        if (! file_exists(__DIR__ . '/../app/config.php')) {
-            throw new \Exception("app/config.php not found");
+        if (! file_exists(__DIR__ . '/../app/config.' . env('APP_ENV', 'test') .'.php')) {
+            throw new \Exception('app/config. '. env('APP_ENV', 'test') .'.php not found');
         }
 
         $containerBuilder = new ContainerBuilder();
 
         require __DIR__ . '/../web/container.' . env('APP_ENV', 'production') . '.php';
 
-        $app = new Application($containerBuilder, require __DIR__ . '/../app/config.php');
+        $app = new Application($containerBuilder, require __DIR__ . '/../app/config.' . env('APP_ENV', 'test') .'.php');
 
         require __DIR__ . '/../web/services.' . env('APP_ENV', 'production') . '.php';
         require __DIR__ . '/../web/middleware.' . env('APP_ENV', 'production') . '.php';
