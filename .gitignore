@@ -5,6 +5,6 @@ app/cache/profiler/*
 app/cache/template/*
 !app/logs/.gitkeep
 app/logs/*
-app/config.php
+app/config.*.php
 .idea
 .env

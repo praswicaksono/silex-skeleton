@@ -2,8 +2,8 @@
 
 return [
     'config' => [
-        'debug' => (bool) env('APP_DEBUG', false),
-        'env' => (bool) env('APP_ENV', false),
+        'debug' => (bool) env('APP_DEBUG', true),
+        'env' => (bool) env('APP_ENV', 'dev'),
         'session' => [
             'session.storage.options' => [
                 'name' => '__SESS',
@@ -18,17 +18,36 @@ return [
             'twig.path' => __DIR__ . '/../src/Templates',
             'twig.options' => [
                 'cache' => __DIR__ . '/cache/template',
-                'auto_reload' => (bool) env('TWIG_AUTO_RELOAD', false)
+                'auto_reload' => (bool) env('TWIG_AUTO_RELOAD', true)
             ],
         ],
         'monolog' => [
             'monolog.name' => 'MyApp',
-            'monolog.logfile' => __DIR__ . '/logs/' . env('APP_ENV', 'production') . '.log'
+            'monolog.logfile' => __DIR__ . '/logs/' . env('APP_ENV', 'dev') . '.log'
         ],
         'database' => [
             'db.options' => [
                 'driver'   => 'pdo_sqlite',
                 'path'     => __DIR__ . '/db/app.db',
+            ],
+        ],
+        'doctrine' => [
+            'orm.em.options' => [
+                'mappings' => [
+                    [
+                        'type' => 'simple_yml',
+                        'namespace' => 'App\Entities\Meta',
+                        'path' => __DIR__ . '/../src/Entities/Meta',
+                    ],
+                ],
+            ],
+            'orm.proxies_dir' => __DIR__ . '/../src/Entities/Proxy',
+            'orm.proxies_namespace' => 'App\Entities\Proxy',
+            'orm.auto_generate_proxies' => false,
+        ],
+        'doctrine_cache' => [
+            'cache.options' => [
+                'driver' => 'array',
             ],
         ],
         'http_cache' => [
