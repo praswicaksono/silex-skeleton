@@ -11,6 +11,7 @@ use Doctrine\DBAL\Migrations\Tools\Console\Command\GenerateCommand;
 use Doctrine\DBAL\Migrations\Tools\Console\Command\MigrateCommand;
 use Doctrine\DBAL\Migrations\Tools\Console\Command\StatusCommand;
 use Doctrine\DBAL\Migrations\Tools\Console\Command\VersionCommand;
+use App\Console\DoctrineFixtureLoadCommand;
 
 $app = require __DIR__ . '/../../web/bootstrap.php';
 
@@ -30,7 +31,10 @@ $cli->addCommands([
     new GenerateCommand(),
     new MigrateCommand(),
     new StatusCommand(),
-    new VersionCommand()
+    new VersionCommand(),
+    $app[DoctrineFixtureLoadCommand::class]
 ]);
+
+ConsoleRunner::addCommands($cli);
 
 $cli->run();
