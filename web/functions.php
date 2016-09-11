@@ -1,8 +1,9 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace {
-    if (! function_exists('env')) {
+    if (!function_exists('env')) {
         function env($name, $default)
         {
             if (isset($_ENV[$name])) {

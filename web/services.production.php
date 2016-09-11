@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
@@ -24,7 +25,7 @@ use Silex\Application;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 
-/**
+/*
  * register service provider
  */
 $app->register(new SessionServiceProvider(), (array) $app['config']['session']);
@@ -60,13 +61,13 @@ $app->extend('translator', function (Translator $translator, Application $app) {
 $app->register(new DoctrineServiceProvider(), $app['config']['database']);
 $app->register(new DoctrineOrmServiceProvider(), $app['config']['doctrine']);
 
-/**
+/*
  * if debug true load debug bar
  */
 if ($app['config']['debug'] === true) {
     Debug::enable(E_ALL, true);
     $app->register(new VarDumperServiceProvider());
     $app->register(new WebProfilerServiceProvider(), [
-        'profiler.cache_dir' => __DIR__ . '/../app/cache/profiler'
+        'profiler.cache_dir' => __DIR__.'/../app/cache/profiler',
     ]);
 }

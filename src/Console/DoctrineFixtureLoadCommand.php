@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Console;
 
@@ -13,8 +14,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class DoctrineFixtureLoadCommand
- * @package App\Console
+ * Class DoctrineFixtureLoadCommand.
  */
 class DoctrineFixtureLoadCommand extends Command
 {
@@ -26,10 +26,11 @@ class DoctrineFixtureLoadCommand extends Command
     /**
      * @var string
      */
-    private $defaultPath = __DIR__ . '/../Fixtures';
+    private $defaultPath = __DIR__.'/../Fixtures';
 
     /**
      * DoctrineFixtureLoadCommand constructor.
+     *
      * @param EntityManager $entityManager
      */
     public function __construct(EntityManager $entityManager)
@@ -38,6 +39,9 @@ class DoctrineFixtureLoadCommand extends Command
         parent::__construct();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function configure()
     {
         $this->setName('fixtures:load')
@@ -48,6 +52,9 @@ class DoctrineFixtureLoadCommand extends Command
         parent::configure();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $path = $this->defaultPath;

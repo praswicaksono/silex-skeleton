@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "84aaef27cfd3e4b299d748c5b96b2ab6",
-    "content-hash": "25bdbf26f5fea4d27547a7092722c0ae",
+    "hash": "d4e55e3964c0ec48885d06fd553c54ac",
+    "content-hash": "90cb3ae0faa5437a563abdc349697867",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -3251,6 +3251,64 @@
     ],
     "packages-dev": [
         {
+            "name": "friendsofphp/php-cs-fixer",
+            "version": "v1.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
+                "reference": "d33ee60f3d3e6152888b7f3a385f49e5c43bf1bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/d33ee60f3d3e6152888b7f3a385f49e5c43bf1bf",
+                "reference": "d33ee60f3d3e6152888b7f3a385f49e5c43bf1bf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": "^5.3.6 || >=7.0 <7.2",
+                "sebastian/diff": "^1.1",
+                "symfony/console": "^2.3 || ^3.0",
+                "symfony/event-dispatcher": "^2.1 || ^3.0",
+                "symfony/filesystem": "^2.1 || ^3.0",
+                "symfony/finder": "^2.1 || ^3.0",
+                "symfony/process": "^2.3 || ^3.0",
+                "symfony/stopwatch": "^2.5 || ^3.0"
+            },
+            "conflict": {
+                "hhvm": "<3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5|^5",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "bin": [
+                "php-cs-fixer"
+            ],
+            "type": "application",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\CS\\": "Symfony/CS/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A tool to automatically fix PHP code style",
+            "time": "2016-09-07 06:48:24"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.5.1",
             "source": {
@@ -4640,6 +4698,104 @@
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
             "time": "2016-07-26 08:04:17"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "e568ef1784f447a0e54dcb6f6de30b9747b0f577"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/e568ef1784f447a0e54dcb6f6de30b9747b0f577",
+                "reference": "e568ef1784f447a0e54dcb6f6de30b9747b0f577",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-08-26 12:04:02"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "e64e93041c80e77197ace5ab9385dedb5a143697"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/e64e93041c80e77197ace5ab9385dedb5a143697",
+                "reference": "e64e93041c80e77197ace5ab9385dedb5a143697",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-08-16 14:58:24"
         },
         {
             "name": "symfony/stopwatch",

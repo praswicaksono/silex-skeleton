@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -10,8 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class MainController
- * @package Jowy\SilexSkeleton\Controllers
+ * Class MainController.
  */
 class MainController implements ControllerProviderInterface
 {
@@ -22,6 +22,7 @@ class MainController implements ControllerProviderInterface
 
     /**
      * @param Application $app
+     *
      * @return ControllerCollection
      */
     public function connect(Application $app) : ControllerCollection
@@ -29,11 +30,13 @@ class MainController implements ControllerProviderInterface
         $this->app = $app;
         $controllers = $app['controllers_factory'];
         $controllers->get('/', [$this, 'indexAction'])->bind('homepage');
+
         return $controllers;
     }
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function indexAction(Request $request) : Response
