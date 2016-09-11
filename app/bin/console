@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Symfony\Component\Console\Application;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
@@ -18,7 +18,7 @@ $app = require __DIR__ . '/../../web/bootstrap.php';
 /** @var \Doctrine\ORM\EntityManager $em */
 $em = $app['orm.em'];
 
-$cli = new Application('Doctrine Console Application', \Doctrine\ORM\Version::VERSION);
+$cli = new Application('Application Console', $app['config']['app_version']);
 $helper = ConsoleRunner::createHelperSet($em);
 $helper->set(new QuestionHelper(), 'dialog');
 
